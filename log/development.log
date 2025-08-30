@@ -1,0 +1,167 @@
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO public /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (94.6ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_with_docker_development" ENCODING = 'unicode' /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1287700863332771895) /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1287700863332771895) /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-08-30 07:41:10.002898', '2025-08-30 07:41:10.002901') RETURNING "key" /*application='RubyDevWithDocker'*/[0m
+Migrating to CreateUsers (20241230120000)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying NOT NULL, "email" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241230120000') RETURNING "version" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1287700863332771895) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1287700863332771895) /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+Migrating to CreatePosts (20241230120001)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying NOT NULL, "content" text NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id") /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id") /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1287700863332771895) /*application='RubyDevWithDocker'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO public /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (110.3ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_with_docker_development" ENCODING = 'unicode' /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1287700863332771895) /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+Migrating to CreatePosts (20241230120001)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (15.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying NOT NULL, "content" text NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id") /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id") /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1287700863332771895) /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (71.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_with_docker_development" /*application='RubyDevWithDocker'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (76.3ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_with_docker_development" ENCODING = 'unicode' /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1287700863332771895) /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-08-30 07:46:54.327276', '2025-08-30 07:46:54.327279') RETURNING "key" /*application='RubyDevWithDocker'*/[0m
+Migrating to CreateUsers (20241230120000)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (16.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying NOT NULL, "email" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241230120000') RETURNING "version" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT /*application='RubyDevWithDocker'*/[0m
+Migrating to CreatePosts (20241230120001)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying NOT NULL, "content" text NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id") /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id") /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1287700863332771895) /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mSET search_path TO public /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (90.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_with_docker_development" /*application='RubyDevWithDocker'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (66.2ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_with_docker_development" ENCODING = 'unicode' /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1287700863332771895) /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-08-30 07:48:53.556832', '2025-08-30 07:48:53.556834') RETURNING "key" /*application='RubyDevWithDocker'*/[0m
+Migrating to CreateUsers (20241230120000)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying NOT NULL, "email" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241230120000') RETURNING "version" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT /*application='RubyDevWithDocker'*/[0m
+Migrating to CreatePosts (20241230120001)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying NOT NULL, "content" text NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id") /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241230120001') RETURNING "version" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*application='RubyDevWithDocker'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1287700863332771895) /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[36mUser Exists? (3.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'tanaka@example.com' LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ('田中太郎', 'tanaka@example.com', '2025-08-30 07:50:20.687328', '2025-08-30 07:50:20.687328') RETURNING "id" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[36mUser Exists? (15.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'sato@example.com' LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ('佐藤花子', 'sato@example.com', '2025-08-30 07:50:20.739000', '2025-08-30 07:50:20.739000') RETURNING "id" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'yamada@example.com' LIMIT 1 /*application='RubyDevWithDocker'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ('山田次郎', 'yamada@example.com', '2025-08-30 07:50:20.765279', '2025-08-30 07:50:20.765279') RETURNING "id" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[36mPost Create (9.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES ('Ruby on Rails入門', 'Ruby on RailsでAPIを作成する方法について説明します。', 1, '2025-08-30 07:50:21.022615', '2025-08-30 07:50:21.022615') RETURNING "id" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[36mPost Create (1.9ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES ('Dockerの便利さ', 'Docker環境を使うことで開発環境の構築が簡単になります。', 1, '2025-08-30 07:50:21.052503', '2025-08-30 07:50:21.052503') RETURNING "id" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[36mPost Create (2.9ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES ('PostgreSQLのメリット', 'PostgreSQLは高性能で信頼性の高いデータベースです。', 2, '2025-08-30 07:50:21.064184', '2025-08-30 07:50:21.064184') RETURNING "id" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[36mPost Create (3.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES ('API設計のベストプラクティス', 'RESTful APIを設計する際のポイントをまとめました。', 2, '2025-08-30 07:50:21.077728', '2025-08-30 07:50:21.077728') RETURNING "id" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='RubyDevWithDocker'*/[0m
+  [1m[36mPost Create (3.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES ('CORS設定の重要性', 'フロントエンドからのAPIアクセスにはCORS設定が必要です。', 3, '2025-08-30 07:50:21.094980', '2025-08-30 07:50:21.094980') RETURNING "id" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT /*application='RubyDevWithDocker'*/[0m
+  [1m[36mUser Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*application='RubyDevWithDocker'*/[0m
+  [1m[36mPost Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" /*application='RubyDevWithDocker'*/[0m
+Started GET "/api/v1/health" for 172.19.0.1 at 2025-08-30 07:50:29 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RubyDevWithDocker'*/[0m
+Processing by Api::V1::HealthController#show as */*
+  [1m[35m (24.5ms)[0m  [1m[34mSELECT 1 /*action='show',application='RubyDevWithDocker',controller='health'*/[0m
+  ↳ app/controllers/api/v1/health_controller.rb:13:in 'Api::V1::HealthController#database_status'
+Completed 200 OK in 252ms (Views: 0.4ms | ActiveRecord: 28.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for 172.19.0.1 at 2025-08-30 07:50:35 +0000
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='RubyDevWithDocker',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in 'Api::V1::UsersController#index'
+Completed 200 OK in 102ms (Views: 31.6ms | ActiveRecord: 3.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/posts" for 172.19.0.1 at 2025-08-30 07:50:41 +0000
+Processing by Api::V1::PostsController#index as */*
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='RubyDevWithDocker',controller='posts'*/[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:7:in 'Api::V1::PostsController#index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 2, 3) /*action='index',application='RubyDevWithDocker',controller='posts'*/[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:7:in 'Api::V1::PostsController#index'
+Completed 200 OK in 168ms (Views: 1.2ms | ActiveRecord: 2.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+

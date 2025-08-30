@@ -1,0 +1,53 @@
+Run bin/rubocop -f github
+  bin/rubocop -f github
+  shell: /usr/bin/bash -e {0}
+
+Error: Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.
+Error: Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.
+Error: Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.
+Error: Layout/TrailingEmptyLines: Final newline missing.
+Error: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.
+Error: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingEmptyLines: Final newline missing.
+Error: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.
+Error: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingEmptyLines: Final newline missing.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingEmptyLines: Final newline missing.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingEmptyLines: Final newline missing.
+Error: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.
+Error: Layout/SpaceInsideArrayLiteralBrackets: Use space inside array brackets.
+Error: Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.
+Error: Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingEmptyLines: Final newline missing.
+Error: Layout/TrailingWhitespace: Trailing whitespace detected.
+Error: Layout/TrailingEmptyLines: Final newline missing.
+Error: Process completed with exit code 1.
+0s

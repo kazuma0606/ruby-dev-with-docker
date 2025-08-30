@@ -1,0 +1,38 @@
+Run bin/rails db:test:prepare test test:system
+  bin/rails db:test:prepare test test:system
+  shell: /usr/bin/bash -e {0}
+  env:
+    RAILS_ENV: test
+    DATABASE_URL: ***localhost:5432
+Run options: --seed 4787
+
+# Running:
+
+
+
+Finished in 0.000344s, 0.0000 runs/s, 0.0000 assertions/s.
+0 runs, 0 assertions, 0 failures, 0 errors, 0 skips
+/opt/hostedtoolcache/Ruby/3.4.5/x64/lib/ruby/3.4.0/bundled_gems.rb:82:in 'Kernel.require': cannot load such file -- /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/test/system (LoadError)
+	from /opt/hostedtoolcache/Ruby/3.4.5/x64/lib/ruby/3.4.0/bundled_gems.rb:82:in 'block (2 levels) in Kernel#replace_require'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.18.6/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:30:in 'Kernel#require'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/zeitwerk-2.7.3/lib/zeitwerk/core_ext/kernel.rb:34:in 'Kernel#require'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/railties-8.0.2.1/lib/rails/test_unit/runner.rb:66:in 'block in Rails::TestUnit::Runner.load_tests'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/railties-8.0.2.1/lib/rails/test_unit/runner.rb:64:in 'Array#each'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/railties-8.0.2.1/lib/rails/test_unit/runner.rb:64:in 'Rails::TestUnit::Runner.load_tests'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/railties-8.0.2.1/lib/rails/test_unit/runner.rb:56:in 'Rails::TestUnit::Runner.run'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/railties-8.0.2.1/lib/rails/commands/test/test_command.rb:33:in 'Rails::Command::TestCommand#perform'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/railties-8.0.2.1/lib/rails/commands/test/test_command.rb:61:in 'Rails::Command::TestCommand#system'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/thor-1.4.0/lib/thor/command.rb:28:in 'Thor::Command#run'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/thor-1.4.0/lib/thor/invocation.rb:127:in 'Thor::Invocation#invoke_command'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/railties-8.0.2.1/lib/rails/command/base.rb:178:in 'Rails::Command::Base#invoke_command'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/thor-1.4.0/lib/thor.rb:538:in 'Thor.dispatch'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/railties-8.0.2.1/lib/rails/command/base.rb:73:in 'Rails::Command::Base.perform'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/railties-8.0.2.1/lib/rails/command.rb:65:in 'block in Rails::Command.invoke'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/railties-8.0.2.1/lib/rails/command.rb:143:in 'Rails::Command.with_argv'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/railties-8.0.2.1/lib/rails/command.rb:63:in 'Rails::Command.invoke'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/railties-8.0.2.1/lib/rails/commands.rb:18:in '<main>'
+	from /opt/hostedtoolcache/Ruby/3.4.5/x64/lib/ruby/3.4.0/bundled_gems.rb:82:in 'Kernel.require'
+	from /opt/hostedtoolcache/Ruby/3.4.5/x64/lib/ruby/3.4.0/bundled_gems.rb:82:in 'block (2 levels) in Kernel#replace_require'
+	from /home/runner/work/ruby-dev-with-docker/ruby-dev-with-docker/vendor/bundle/ruby/3.4.0/gems/bootsnap-1.18.6/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:30:in 'Kernel#require'
+	from bin/rails:4:in '<main>'
+Error: Process completed with exit code 1.
